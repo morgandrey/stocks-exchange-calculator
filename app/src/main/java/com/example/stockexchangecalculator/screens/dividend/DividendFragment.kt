@@ -1,4 +1,4 @@
-package com.example.stockexchangecalculator
+package com.example.stockexchangecalculator.screens.dividend
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.example.stockexchangecalculator.R
 import com.example.stockexchangecalculator.databinding.FragmentDividendBinding
-import com.example.stockexchangecalculator.databinding.FragmentStockReturnsBinding
 
 class DividendFragment : Fragment() {
 

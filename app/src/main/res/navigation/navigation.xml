@@ -9,7 +9,8 @@
         android:id="@+id/titleFragment"
         tools:layout="@layout/fragment_title"
         android:name="com.example.stockexchangecalculator.TitleFragment"
-        android:label="TitleFragment" >
+        android:label="TitleFragment"
+        app:startDestination="@id/action_titleFragment_to_stockReturnsFragment">
         <action
             android:id="@+id/action_titleFragment_to_stockReturnsFragment"
             app:destination="@id/stockReturnsFragment" />
@@ -19,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/stockReturnsFragment"
-        android:name="com.example.stockexchangecalculator.StockReturnsFragment"
+        android:name="com.example.stockexchangecalculator.screens.stockreturns.StockReturnsFragment"
         android:label="fragment_stock_returns"
         tools:layout="@layout/fragment_stock_returns" />
     <fragment
         android:id="@+id/dividendFragment"
-        android:name="com.example.stockexchangecalculator.DividendFragment"
+        android:name="com.example.stockexchangecalculator.screens.dividend.DividendFragment"
         android:label="fragment_dividend"
         tools:layout="@layout/fragment_dividend" />
 </navigation>

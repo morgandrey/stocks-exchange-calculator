@@ -10,7 +10,5 @@
     <string name="total_value_price">Доход с учетом комиссии: %s</string>
     <string name="tax_sell">Комиссия на продажу: %s</string>
     <string name="total_price">Стоимость купленных акций: %s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="dividens">Дивиденды</string>
+    <string name="dividends">Дивиденды</string>
 </resources>
