@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        tools:layout="@layout/fragment_title"
+        android:name="com.example.stockexchangecalculator.TitleFragment"
+        android:label="TitleFragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_stockReturnsFragment"
+            app:destination="@id/stockReturnsFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_dividendFragment"
+            app:destination="@id/dividendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockReturnsFragment"
+        android:name="com.example.stockexchangecalculator.StockReturnsFragment"
+        android:label="fragment_stock_returns"
+        tools:layout="@layout/fragment_stock_returns" />
+    <fragment
+        android:id="@+id/dividendFragment"
+        android:name="com.example.stockexchangecalculator.DividendFragment"
+        android:label="fragment_dividend"
+        tools:layout="@layout/fragment_dividend" />
+</navigation>

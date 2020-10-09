@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">StockExCalc</string>
+    <string name="averageValue">Среднее значение</string>
+    <string name="numberOfStocks">Количество</string>
+    <string name="currentPrice">Текущая цена акции</string>
+    <string name="tax">Комиссия (%)</string>
+    <string name="calculate">Рассчитать</string>
+    <string name="tax_buy">Комиссия на покупку: %s</string>
+    <string name="value_price">Доход: %s</string>
+    <string name="total_value_price">Доход с учетом комиссии: %s</string>
+    <string name="tax_sell">Комиссия на продажу: %s</string>
+    <string name="total_price">Стоимость купленных акций: %s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dividens">Дивиденды</string>
+</resources>
