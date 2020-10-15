@@ -8,25 +8,25 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="dividendFragment">
+                  <entry key="authFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="404" />
-                            <option name="y" value="456" />
+                            <option name="x" value="-17" />
+                            <option name="y" value="338" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="stockReturnsFragment">
+                  <entry key="stockFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="403" />
-                            <option name="y" value="-14" />
+                            <option name="x" value="523" />
+                            <option name="y" value="314" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -37,9 +37,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="83" />
-                            <option name="y" value="159" />
+                            <option name="x" value="228" />
+                            <option name="y" value="322" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_titleFragment_to_stockFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

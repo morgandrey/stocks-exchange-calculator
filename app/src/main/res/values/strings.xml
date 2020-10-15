@@ -15,4 +15,13 @@
     <string name="amount_of_dividends">Количество дивидендов на акцию</string>
     <string name="dividends_result">Итог (с вычетом налога): %s</string>
     <string name="tax_const">0.3</string>
+    <string name="list_of_stocks">Добавить новые акции</string>
+    <string name="delete_all_stocks">Удалить все акции</string>
+    <string name="change_image">changeImage</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="register">Регистрация</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

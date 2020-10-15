@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="#D7E3DD"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/stock_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        tools:text="AXAS" />
+
+    <TextView
+        android:id="@+id/stock_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        tools:text="NYQ" />
+
+    <TextView
+        android:id="@+id/stock_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stock_symbol"
+        android:layout_marginTop="4dp"
+        tools:text="Abraxas Petroleum Corp." />
+
+    <TextView
+        android:id="@+id/stock_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stock_price"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp"
+        tools:text="-0.2" />
+
+    <ImageView
+        android:id="@+id/change_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/stock_change"
+        android:contentDescription="@string/change_image"
+        app:srcCompat="@drawable/green_arrow" />
+</RelativeLayout>

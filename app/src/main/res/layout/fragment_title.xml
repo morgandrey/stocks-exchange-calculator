@@ -8,22 +8,40 @@
         android:id="@+id/titleConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/stock_returns_button"
+        <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/stock_value" />
+            style="?android:attr/buttonBarStyle">
 
-        <Button
-            android:id="@+id/dividend_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/dividends" />
+            <Button
+                android:id="@+id/delete_stocks_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/delete_all_stocks"
+                android:textColor="@color/design_default_color_on_secondary" />
+
+            <Button
+                android:id="@+id/add_new_stocks_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/list_of_stocks"
+                android:textColor="@color/design_default_color_on_secondary" />
+        </TableRow>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stock_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>
