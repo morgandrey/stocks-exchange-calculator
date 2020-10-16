@@ -6,11 +6,11 @@ import io.realm.annotations.PrimaryKey
 import java.util.*
 
 open class Stock (
-    @PrimaryKey var stockId: String = UUID.randomUUID().toString(),
-    var stockSymbol: String = "",
+    @PrimaryKey var stockSymbol: String = "",
     var stockName: String = "",
     var stockPrice: Double = 0.0,
     var stockChange: Double = 0.0,
-    var user: RealmList<UserStock> = RealmList()
+    var numberOfStocks: Int = 0,
+    var averagePrice: Double = 0.0
 ): RealmObject()
 

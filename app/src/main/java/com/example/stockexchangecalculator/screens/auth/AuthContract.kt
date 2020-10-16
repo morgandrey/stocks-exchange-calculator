@@ -6,6 +6,6 @@ interface AuthContract {
     }
 
     interface Presenter {
-        fun checkUser(): Boolean
+        fun checkUser(login: String, password: String): Boolean
     }
 }

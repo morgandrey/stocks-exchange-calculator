@@ -9,5 +9,6 @@ open class User(
     @PrimaryKey var userId: String = UUID.randomUUID().toString(),
     var userLogin: String = "",
     var userPassword: String = "",
-    var stocks: RealmList<UserStock> = RealmList()
+    var userMoney: Double = 10_000.0,
+    var stocks: RealmList<Stock> = RealmList()
 ) : RealmObject()

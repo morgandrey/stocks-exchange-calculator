@@ -1,9 +1,7 @@
 package com.example.stockexchangecalculator.screens.stocks
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ProgressBar
 import android.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -13,16 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stockexchangecalculator.R
 import com.example.stockexchangecalculator.data.models.Stock
 import com.example.stockexchangecalculator.databinding.FragmentStockBinding
-import io.realm.Realm
 import java.io.BufferedReader
 import java.io.InputStreamReader
+
 
 class StockFragment : Fragment(), StockContract.View {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var stickerSearchView: SearchView
     private lateinit var adapter: StockAdapter
-    private lateinit var realm: Realm
     private lateinit var symbolArray: Array<String>
     private lateinit var binding: FragmentStockBinding
     private lateinit var progressBar: ProgressBar
@@ -44,9 +40,20 @@ class StockFragment : Fragment(), StockContract.View {
         symbolArray = createSymbolArray()
         stockPresenter = StockPresenter(this)
         recyclerView.setHasFixedSize(true)
-        stickerSearchView = binding.searchView
 
-        stickerSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        setHasOptionsMenu(true)
+
+        return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.search_stocks_item_menu, menu)
+
+        val searchItem = menu.findItem(R.id.search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -56,13 +63,6 @@ class StockFragment : Fragment(), StockContract.View {
                 return false
             }
         })
-
-        return binding.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        realm = Realm.getDefaultInstance()
     }
 
     override fun onStart() {
@@ -70,17 +70,9 @@ class StockFragment : Fragment(), StockContract.View {
         stockPresenter.initDataset(symbolArray)
     }
 
-    override fun onResume() {
-        try {
-            super.onResume()
-        } catch (e: Exception) {
-            print(e.message)
-        }
-    }
-
     private fun createSymbolArray(): Array<String> {
-        val p = resources.openRawResource(R.raw.symbols)
-        val reader = BufferedReader(InputStreamReader(p))
+        val file = resources.openRawResource(R.raw.symbols)
+        val reader = BufferedReader(InputStreamReader(file))
         var line = reader.readLine()
         val listOfSymbols = mutableListOf<String>()
         while (line != null) {
@@ -88,11 +80,6 @@ class StockFragment : Fragment(), StockContract.View {
             line = reader.readLine()
         }
         return listOfSymbols.toTypedArray()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        realm.close()
     }
 
     override fun setupStockAdapter(dataset: MutableList<Stock>) {

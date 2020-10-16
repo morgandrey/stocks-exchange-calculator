@@ -1,4 +1,4 @@
-package com.example.stockexchangecalculator
+package com.example.stockexchangecalculator.ui
 
 import android.app.Application
 

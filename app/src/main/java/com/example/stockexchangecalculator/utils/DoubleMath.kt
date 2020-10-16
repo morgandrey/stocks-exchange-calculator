@@ -1,4 +1,4 @@
-package com.example.stockexchangecalculator.screens
+package com.example.stockexchangecalculator.utils
 
 import java.math.RoundingMode
 import java.text.DecimalFormat

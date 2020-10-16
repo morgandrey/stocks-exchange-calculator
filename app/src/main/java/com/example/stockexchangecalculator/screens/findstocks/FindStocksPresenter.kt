@@ -1,14 +1,8 @@
 package com.example.stockexchangecalculator.screens.stocks
 
-import android.content.Context
-import android.widget.Toast
-import com.example.stockexchangecalculator.R
 import com.example.stockexchangecalculator.data.models.Stock
 import kotlinx.coroutines.*
 import yahoofinance.YahooFinance
-import java.io.File
-import java.io.IOException
-import java.io.InputStream
 
 
 class StockPresenter(private val view: StockContract.View) : StockContract.Presenter {
@@ -19,14 +13,11 @@ class StockPresenter(private val view: StockContract.View) : StockContract.Prese
 
     override fun initDataset(symbolArray: Array<String>) {
         val dataset = mutableListOf<Stock>()
-        val handler = CoroutineExceptionHandler { _, exception ->
-            println("CoroutineExceptionHandler got $exception")
-        }
-        scopeIO.launch(handler) {
+        scopeIO.launch {
             supervisorScope {
                 for (symbol in symbolArray) {
                     val stock = YahooFinance.get(symbol) ?: continue
-                    print(stock.name)
+
                     if (stock.symbol == null
                         || stock.quote.price == null
                         || stock.quote.changeInPercent == null
