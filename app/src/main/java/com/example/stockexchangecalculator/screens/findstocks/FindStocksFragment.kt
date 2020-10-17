@@ -1,4 +1,4 @@
-package com.example.stockexchangecalculator.screens.stocks
+package com.example.stockexchangecalculator.screens.findstocks
 
 import android.os.Bundle
 import android.view.*
@@ -9,37 +9,42 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stockexchangecalculator.R
+import com.example.stockexchangecalculator.adapters.FindStocksAdapter
 import com.example.stockexchangecalculator.data.models.Stock
-import com.example.stockexchangecalculator.databinding.FragmentStockBinding
+import com.example.stockexchangecalculator.databinding.FragmentFindStocksBinding
+import com.example.stockexchangecalculator.utils.Utils.errorSnackBar
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 
-class StockFragment : Fragment(), StockContract.View {
+class FindStocksFragment : Fragment(), FindStocksContract.View {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: StockAdapter
+    private lateinit var adapter: FindStocksAdapter
     private lateinit var symbolArray: Array<String>
-    private lateinit var binding: FragmentStockBinding
+    private lateinit var binding: FragmentFindStocksBinding
     private lateinit var progressBar: ProgressBar
-    private lateinit var stockPresenter: StockPresenter
+    private lateinit var stockPresenter: FindStocksPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_stock, container, false
+            inflater, R.layout.fragment_find_stocks, container, false
         )
-        adapter = StockAdapter(mutableListOf())
+        adapter = FindStocksAdapter(mutableListOf())
+
         recyclerView = binding.recycleStockView
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        with(recyclerView) {
+            layoutManager = LinearLayoutManager(activity)
+            visibility = View.GONE
+            setHasFixedSize(true)
+        }
         progressBar = binding.progressBar
         progressBar.visibility = View.VISIBLE
-        recyclerView.visibility = View.GONE
         symbolArray = createSymbolArray()
-        stockPresenter = StockPresenter(this)
-        recyclerView.setHasFixedSize(true)
+        stockPresenter = FindStocksPresenter(this)
 
         setHasOptionsMenu(true)
 
@@ -83,9 +88,13 @@ class StockFragment : Fragment(), StockContract.View {
     }
 
     override fun setupStockAdapter(dataset: MutableList<Stock>) {
-        adapter = StockAdapter(dataset)
+        adapter = FindStocksAdapter(dataset)
         recyclerView.adapter = adapter
         progressBar.visibility = View.GONE
         recyclerView.visibility = View.VISIBLE
+    }
+
+    override fun onNetworkError() {
+        errorSnackBar(requireView())
     }
 }

@@ -2,7 +2,7 @@ package com.example.stockexchangecalculator.screens.portfolio
 
 import com.example.stockexchangecalculator.data.models.Stock
 
-interface MyStocksContract {
+interface PortfolioContract {
     interface View {
         fun setupDataset()
     }

@@ -1,10 +1,11 @@
-package com.example.stockexchangecalculator.screens.stocks
+package com.example.stockexchangecalculator.screens.findstocks
 
 import com.example.stockexchangecalculator.data.models.Stock
 
-interface StockContract {
+interface FindStocksContract {
     interface View {
         fun setupStockAdapter(dataset: MutableList<Stock>)
+        fun onNetworkError()
     }
 
     interface Presenter {

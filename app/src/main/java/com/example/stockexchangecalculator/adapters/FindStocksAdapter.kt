@@ -1,19 +1,22 @@
-package com.example.stockexchangecalculator.screens.stocks
+package com.example.stockexchangecalculator.adapters
 
 import android.graphics.Color
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Filter
+import android.widget.Filterable
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stockexchangecalculator.R
 import com.example.stockexchangecalculator.data.models.Stock
-import com.example.stockexchangecalculator.utils.CurrentUser
-import io.realm.Realm
 import java.util.*
 
-class StockAdapter(private var dataSet: MutableList<Stock>) :
-    RecyclerView.Adapter<StockAdapter.ViewHolder>(), Filterable {
+class FindStocksAdapter(private var dataSet: MutableList<Stock>) :
+    RecyclerView.Adapter<FindStocksAdapter.ViewHolder>(), Filterable {
 
     var dataSetFiltered = mutableListOf<Stock>()
 
@@ -27,18 +30,17 @@ class StockAdapter(private var dataSet: MutableList<Stock>) :
         private val stockChange: TextView = itemView.findViewById(R.id.stock_change)
         private val changeImage: ImageView = itemView.findViewById(R.id.change_image)
         private val stockName: TextView = itemView.findViewById(R.id.stock_name)
-        private val plusImage: ImageView = itemView.findViewById(R.id.plus_image)
-
-        private val realm: Realm = Realm.getDefaultInstance()
 
         fun bind(item: Stock) {
             stockSymbol.text = item.stockSymbol
-            stockPrice.text = "${item.stockPrice} $"
-            stockChange.text = "${item.stockChange} $"
+            stockPrice.text = item.stockPrice.toString()
+            stockChange.text = item.stockChange.toString()
             stockName.text = item.stockName
             changeImageAndTextView(stockChange, changeImage, item.stockChange)
-            plusImage.setOnClickListener {
-                addStockToUser(item, it)
+            itemView.setOnClickListener { view: View ->
+                val bundle = Bundle()
+                bundle.putString("stock", stockSymbol.text.toString())
+                view.findNavController().navigate(R.id.action_findStocksFragment_to_buyStockFragment, bundle)
             }
         }
 
@@ -51,20 +53,6 @@ class StockAdapter(private var dataSet: MutableList<Stock>) :
             }
         }
 
-        private fun addStockToUser(stock: Stock, view: View) {
-            for (_stock in CurrentUser.currentUser.stocks) {
-                if (_stock.stockName == stock.stockName) {
-                    Toast.makeText(view.context, "Эта акция уже у вас есть!", Toast.LENGTH_SHORT).show()
-                    return
-                }
-            }
-            realm.executeTransaction { realm ->
-                CurrentUser.currentUser.stocks.add(stock)
-                realm.copyToRealmOrUpdate(CurrentUser.currentUser)
-            }
-            realm.close()
-            Toast.makeText(view.context, "Акция успешно добавлена", Toast.LENGTH_SHORT).show()
-        }
 
         private fun changeImageAndTextView(
             textView: TextView,

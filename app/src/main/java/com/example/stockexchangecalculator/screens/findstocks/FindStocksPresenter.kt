@@ -1,11 +1,12 @@
-package com.example.stockexchangecalculator.screens.stocks
+package com.example.stockexchangecalculator.screens.findstocks
 
 import com.example.stockexchangecalculator.data.models.Stock
 import kotlinx.coroutines.*
 import yahoofinance.YahooFinance
 
 
-class StockPresenter(private val view: StockContract.View) : StockContract.Presenter {
+class FindStocksPresenter(private val view: FindStocksContract.View) :
+    FindStocksContract.Presenter {
 
     private val job = Job()
     private val scopeMainThread = CoroutineScope(job + Dispatchers.Main)
@@ -13,7 +14,10 @@ class StockPresenter(private val view: StockContract.View) : StockContract.Prese
 
     override fun initDataset(symbolArray: Array<String>) {
         val dataset = mutableListOf<Stock>()
-        scopeIO.launch {
+        val handler = CoroutineExceptionHandler { _, _ ->
+            view.onNetworkError()
+        }
+        scopeIO.launch(handler) {
             supervisorScope {
                 for (symbol in symbolArray) {
                     val stock = YahooFinance.get(symbol) ?: continue

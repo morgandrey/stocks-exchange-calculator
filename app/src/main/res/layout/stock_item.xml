@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="50dp"
         tools:text="NYQ" />
 
     <TextView
@@ -39,7 +38,6 @@
         android:layout_below="@+id/stock_price"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="50dp"
         tools:text="-0.2" />
 
     <ImageView
@@ -47,16 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="40dp"
-        android:layout_toStartOf="@+id/stock_change"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@+id/stock_price"
         android:contentDescription="@string/change_image"
         app:srcCompat="@drawable/green_arrow" />
 
-    <ImageView
-        android:id="@+id/plus_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        app:srcCompat="@drawable/plus" />
 </RelativeLayout>

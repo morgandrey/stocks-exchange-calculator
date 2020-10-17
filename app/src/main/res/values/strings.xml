@@ -15,13 +15,53 @@
     <string name="amount_of_dividends">Количество дивидендов на акцию</string>
     <string name="dividends_result">Итог (с вычетом налога): %s</string>
     <string name="tax_const">0.3</string>
-    <string name="list_of_stocks">Добавить новые акции</string>
-    <string name="delete_all_stocks">Удалить все акции</string>
+    <string name="add_new_stocks">Добавить</string>
+    <string name="delete_all_stocks">Удалить все</string>
     <string name="change_image">changeImage</string>
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
     <string name="enter">Войти</string>
     <string name="register">Регистрация</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_button_text">Зарегистрироваться</string>
+    <string name="title_portfolio">Портфель</string>
+    <string name="search_hint">Поиск</string>
+
+
+    <string name="nav_title_stocks">Stocks</string>
+    <string name="nav_title_currencies">Currencies</string>
+    <string name="nav_title_news">News</string>
+    <string name="nav_title_about">About</string>
+    <string name="nav_title_settings">Settings</string>
+    <string name="nav_sub_title">Sub items</string>
+    <string name="stock_day_hi_lo">Day Hi/Lo</string>
+    <string name="screen_dimensions">Screen dimensions</string>
+    <string name="title_activity_stock_prefs">StockPrefsActivity</string>
+    <string name="stock_detail_title">Stock results</string>
+    <string name="stock_graph_title">Stock graph</string>
+    <string name="stock_chart_description">Stock chart</string>
+    <string name="one_day_chart">1d</string>
+    <string name="five_day_chart">5d</string>
+    <string name="one_month_chart">1m</string>
+    <string name="three_month_chart">3m</string>
+    <string name="six_month_chart">6m</string>
+    <string name="twelve_month_chart">12m</string>
+    <string name="one_year_chart">1y</string>
+    <string name="five_year_chart">5y</string>
+    <string name="symbol_suggestion_hint">Enter one(or more) letters of the stockItem name</string>
+    <string name="action_add_symbol">Add symbol</string>
+    <string name="action_remove_stock">Remove stockItem</string>
+    <string name="stock_exchange_label">Биржа</string>
+    <string name="stock_price_label">Стоимость</string>
+    <string name="change_in_price_label">Изменение</string>
+    <string name="percentage_change_in_price_label">% Изменение</string>
+    <string name="opening_price_label">Открытие</string>
+    <string name="previous_close_label">Закрытие</string>
+    <string name="day_high_label">День выс.</string>
+    <string name="day_low_label">День низ.</string>
+    <string name="year_high_label">Год выс.</string>
+    <string name="year_low_label">Год низ.</string>
+    <string name="stock_amount_label">Количество</string>
+    <string name="stock_price_result_label">Итог</string>
+    <string name="stock_tax_label">Комиссия</string>
+    <string name="buy_stock_label">Купить</string>
 </resources>
