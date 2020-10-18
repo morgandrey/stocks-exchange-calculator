@@ -6,6 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
 
 object Utils {
     fun roundOffDecimal(number: Double): Double {
@@ -29,5 +31,21 @@ object Utils {
         snackBar.setTextColor(Color.WHITE)
         snackBar.setBackgroundTint(Color.RED)
         snackBar.show()
+    }
+    fun errorSnackBar(view: View, exception: String) {
+        val snackBar = Snackbar.make(
+            view, exception,
+            Snackbar.LENGTH_LONG
+        )
+        snackBar.setTextColor(Color.WHITE)
+        snackBar.setBackgroundTint(Color.RED)
+        snackBar.show()
+    }
+
+    fun currencyFormat(number: Double): String {
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.maximumFractionDigits = 2
+        format.currency = Currency.getInstance("USD")
+        return format.format(number)
     }
 }

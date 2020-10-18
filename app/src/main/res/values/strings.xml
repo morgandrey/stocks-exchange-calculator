@@ -64,4 +64,6 @@
     <string name="stock_price_result_label">Итог</string>
     <string name="stock_tax_label">Комиссия</string>
     <string name="buy_stock_label">Купить</string>
+    <string name="user_money_label">На счету: %s</string>
+    <string name="stock_price_result">Комиссия: %1$s\nСтоимость: %2$s\nИтог: %3$s</string>
 </resources>
