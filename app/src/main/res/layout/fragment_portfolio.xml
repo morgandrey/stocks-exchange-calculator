@@ -11,41 +11,55 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#6C5858">
 
-            <Button
-                android:id="@+id/delete_stocks_button"
-                style="@style/Widget.AppCompat.Button.Borderless"
+            <TextView
+                android:id="@+id/user_money_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/add_new_stocks_button"
+                android:layout_alignBottom="@+id/add_new_stocks_button"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/delete_all_stocks"
-                android:textColor="@color/design_default_color_on_secondary" />
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/add_new_stocks_button"
+                android:layout_toEndOf="@+id/delete_stocks_button"
+                android:text="@string/user_money_label"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="На счету: 10,000.02$US" />
 
-            <Button
+            <ImageButton
+                android:id="@+id/delete_stocks_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_normal"
+                android:layout_marginBottom="@dimen/dimen_normal"
+                android:background="@drawable/button_bg"
+                android:src="@drawable/ic_baseline_remove_circle_24" />
+
+            <ImageButton
                 android:id="@+id/add_new_stocks_button"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/add_new_stocks"
-                android:textColor="@color/design_default_color_on_secondary" />
+                android:layout_marginTop="@dimen/dimen_normal"
+                android:layout_marginEnd="@dimen/dimen_medium"
+                android:layout_marginBottom="@dimen/dimen_normal"
+                android:background="@drawable/button_bg"
+                android:src="@drawable/ic_baseline_add_circle_24" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stock_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:listitem="@layout/portfolio_stock_item" />
 
     </LinearLayout>
 </layout>

@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/layout_bg">
+
+    <TextView
+        android:id="@+id/stock_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="AAPL" />
+
+    <TextView
+        android:id="@+id/number_of_stocks_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/stock_symbol"
+        app:layout_constraintTop_toBottomOf="@+id/stock_symbol"
+        tools:text="10 шт." />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/button_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/number_of_stocks_text_view"
+        app:layout_constraintStart_toEndOf="@+id/number_of_stocks_text_view"
+        app:layout_constraintTop_toTopOf="@+id/number_of_stocks_text_view" />
+
+    <TextView
+        android:id="@+id/average_price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/number_of_stocks_text_view"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/number_of_stocks_text_view"
+        tools:text="25.43" />
+
+    <TextView
+        android:id="@+id/total_price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="54.7" />
+
+    <TextView
+        android:id="@+id/change_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/total_price_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/total_price_text_view"
+        tools:text="1.12 (2.01%)" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

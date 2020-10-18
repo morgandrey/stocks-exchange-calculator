@@ -4,11 +4,12 @@ import com.example.stockexchangecalculator.data.models.Stock
 
 interface PortfolioContract {
     interface View {
-        fun setupDataset()
+        fun setupDataset(dataset: MutableList<Stock>)
+        fun onNetworkError(exception: String)
     }
 
     interface Presenter {
         fun deleteAllMyStocks()
-        fun initDataset(): MutableList<Stock>
+        fun initDataset()
     }
 }
